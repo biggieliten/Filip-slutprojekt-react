@@ -1,0 +1,14 @@
+.navBar {
+  width: 100vw;
+  height: 6.5rem;
+  background-color: rgb(172, 127, 4);
+  border-end-start-radius: 1rem;
+  border-end-end-radius: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: 2.5rem;
+  }
+}

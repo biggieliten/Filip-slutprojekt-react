@@ -1,25 +1,20 @@
-import BasicButtons from "../Components/BasicButton/BasicButton";
-
 import { NavBar } from "../Components/NavBar/NavBar";
 import Input from "../Components/Input/Input";
 import { useState } from "react";
-import { useFetch } from "../hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 
 const HomePage = () => {
   const [input, setInput] = useState("");
-  //   console.log(data);
-  const { data } = useFetch(input) as any;
+  const [query, setQuery] = useState("");
+  const url = `https://openlibrary.org/search.json?q=`;
+
+  const querySearch = url + query;
+  useFetch(querySearch) as any;
+
   const onClickFetch = async () => {
-    // console.log(data);
+    setQuery(input);
   };
-  //   {
-  //     useFetch("");
-  //   }
-  //   const fetchOnClick = (input: any) => {
-  //     fetch(input);
-  //   };
-  //   const fetch = (input: any) => useFetch(input);
-  //   console.log(input);
+
   return (
     <>
       <div>
@@ -30,7 +25,6 @@ const HomePage = () => {
             placeholder="Sök bok, författare, genre...."
             inputType="text"
             name=""
-            value={input}
             onChange={(e: any) => setInput(e.target.value)}
             labelName=""
           />

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { json } from "react-router-dom";
 
-export const useFetch = (endpoint: string) => {
-  const url = `https://openlibrary.org/search.json?q=${endpoint}`;
+function useFetch(url: string) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -24,7 +23,11 @@ export const useFetch = (endpoint: string) => {
         console.error(error);
       }
     };
-    fetchAPI();
-  }, [endpoint]);
+    if (url) {
+      fetchAPI();
+    }
+  }, [url]);
   return { data };
-};
+}
+
+export default useFetch;

@@ -5,6 +5,6 @@ export const SearchResult = () => {
   const { query } = useParams();
   const queryURL = `https://openlibrary.org/search.json?q=${query}`;
   const { data } = useFetch(queryURL);
-  console.log();
+  console.log(data);
   return <div>Hola</div>;
 };

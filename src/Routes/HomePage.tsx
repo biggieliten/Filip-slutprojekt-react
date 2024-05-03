@@ -2,6 +2,7 @@ import { NavBar } from "../Components/NavBar/NavBar";
 import Input from "../Components/Input/Input";
 import { useState } from "react";
 import useFetch from "../hooks/useFetch";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const [input, setInput] = useState("");
@@ -9,10 +10,14 @@ const HomePage = () => {
   const url = `https://openlibrary.org/search.json?q=`;
 
   const querySearch = url + query;
-  useFetch(querySearch) as any;
+  const { data } = useFetch(querySearch) as any;
 
-  const onClickFetch = async () => {
+  const navigate = useNavigate();
+
+  const handleClick = async () => {
     setQuery(input);
+    navigate(`search-result/${input}`);
+    console.log(data);
   };
 
   return (
@@ -26,9 +31,8 @@ const HomePage = () => {
             inputType="text"
             name=""
             onChange={(e: any) => setInput(e.target.value)}
-            labelName=""
           />
-          <button onClick={onClickFetch}>Click</button>
+          <button onClick={handleClick}>Search</button>
         </NavBar>
       </div>
     </>

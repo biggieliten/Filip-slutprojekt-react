@@ -1,6 +1,5 @@
 type InputTypes = {
   inputType: string;
-  labelName: string;
   onChange?: React.FormEventHandler;
   value?: any;
   name: string;
@@ -10,7 +9,6 @@ type InputTypes = {
 
 const Input = ({
   inputType,
-  labelName,
   onChange,
   value,
   name,
@@ -20,17 +18,14 @@ const Input = ({
   return (
     <>
       <div>
-        <label className={`songInput ${labelName}`} htmlFor="">
-          {labelName}
-          <input
-            className={navBarClass}
-            name={name}
-            type={inputType}
-            onChange={onChange}
-            value={value}
-            placeholder={placeholder}
-          />
-        </label>
+        <input
+          className={navBarClass}
+          name={name}
+          type={inputType}
+          onChange={onChange}
+          value={value}
+          placeholder={placeholder}
+        />
       </div>
     </>
   );

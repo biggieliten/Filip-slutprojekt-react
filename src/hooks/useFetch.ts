@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { json } from "react-router-dom";
 
 function useFetch(url: string) {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState();
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function useFetch(url: string) {
         const jsonData = await response.json();
 
         setData(jsonData.docs);
-        console.log(jsonData.docs);
+        // console.log(jsonData.docs);
       } catch (error) {
         console.error(error);
       }

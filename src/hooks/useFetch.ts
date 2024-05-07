@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { json } from "react-router-dom";
 
-function useFetch(url: string) {
-  const [data, setData] = useState();
+function useFetch<T>(url: string) {
+  const [data, setData] = useState<T>();
   const [error, setError] = useState(null);
 
   useEffect(() => {

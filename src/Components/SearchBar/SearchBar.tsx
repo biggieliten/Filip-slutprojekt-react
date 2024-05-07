@@ -7,7 +7,7 @@ type InputTypes = {
   placeholder: string;
 };
 
-const Input = ({
+const SearchBar = ({
   inputType,
   onChange,
   value,
@@ -26,9 +26,10 @@ const Input = ({
           value={value}
           placeholder={placeholder}
         />
+        {/* <button onClick={handleClick}>Search</button> */}
       </div>
     </>
   );
 };
 
-export default Input;
+export default SearchBar;

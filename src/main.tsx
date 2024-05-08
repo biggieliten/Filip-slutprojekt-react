@@ -7,6 +7,7 @@ import "./index.scss";
 import { FavoriteAuthors } from "./Routes/FavoriteAuthors/FavoriteAuthors";
 import { FavoriteBooks } from "./Routes/FavoriteBooks/FavoriteBooks";
 import { ReadBooks } from "./Routes/ReadBooks/ReadBooks";
+import { BookProvider } from "./State/Books/BookContextProvider";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BookProvider>
+      <RouterProvider router={router} />
+    </BookProvider>
   </React.StrictMode>
 );

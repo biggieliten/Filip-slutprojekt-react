@@ -1,5 +1,6 @@
 import { Book } from "../Types/BookLibraryTypes";
-import { BooksArray } from "./Books/FavoriteBooksContext";
+// import { BooksArray } from "./Books/FavoriteBooksContext";
+import { BooksArrayType } from "../Types/BookLibraryTypes";
 
 export type Action =
   | { type: "FAVORITE_BOOK"; payload: any }
@@ -13,14 +14,12 @@ const BookAndAuthorReducer = (state: any, action: Action) => {
     case "FAVORITE_BOOK":
       return {
         ...state,
-        BooksArray: [...state.book, action.payload],
+        favoriteBooks: [...state.favoriteBooks, action.payload],
       };
     case "READ_BOOK":
       return {
-        // ...state,
-        // BooksArray: state.songs.filter(
-        //   (song: SongType) => song.title !== action.payload
-        // ),
+        ...state,
+        readBooks: [...state.readBooks, action.payload],
       };
     case "REMOVE_BOOK":
       return {

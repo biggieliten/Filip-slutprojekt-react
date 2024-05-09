@@ -11,3 +11,12 @@ export type FavoriteBooksType = {
   review: string;
   pages: number;
 };
+
+export type BooksArrayType = {
+  favoriteBooks: FavoriteBooksType[];
+  readBooks: [];
+};
+
+// export type reducerStateType = {
+// 	favoriteBooks: fa
+// }

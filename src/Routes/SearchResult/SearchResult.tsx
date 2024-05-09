@@ -10,25 +10,24 @@ export const SearchResult = () => {
   const { query } = useParams();
   const queryURL = `https://openlibrary.org/search.json?q=${query}`;
   const { data } = useFetch<Book[]>(queryURL);
-  //   const [input, setInput] = useState("");
 
   const { dispatch, state } = useContext(FavoriteBooksContext);
 
-  //   console.log(state, "state");
-
   const [favoriteBook, setFavoriteBook] = useState<Book[]>([]);
+  const [readBook, setReadBook] = useState<Book[]>([]);
 
   const addToFavorites = (book: any) => {
     setFavoriteBook([...favoriteBook, book]);
-    console.log(favoriteBook);
+    dispatch({ type: "FAVORITE_BOOK", payload: book });
+    console.log(state.readBooks, "state of fav");
+    // handleAddDispatch(book);
   };
 
-  const handleAddDispatch: React.FormEventHandler<
-    HTMLFormElement | HTMLButtonElement
-  > = (e) => {
-    e.preventDefault;
-    console.log(favoriteBook, "fav book");
-    dispatch({ type: "FAVORITE_BOOK", payload: favoriteBook });
+  const addToRead = (book: any) => {
+    setReadBook([...readBook, book]);
+    dispatch({ type: "READ_BOOK", payload: book });
+    console.log(state.readBooks, "state of read");
+    // handleAddDispatch(book);
   };
 
   return (
@@ -50,7 +49,7 @@ export const SearchResult = () => {
             <button onClick={() => addToFavorites(book)}>
               Add to favorites
             </button>
-            <button>Add to read</button>
+            <button onClick={() => addToRead(book)}>Add to read</button>
           </div>
         ))}
     </div>

@@ -1,19 +1,22 @@
 import { createContext } from "react";
-import { FavoriteBooksType } from "../../Types/BookLibraryTypes";
+import {
+  FavoriteBooksType,
+  BooksArrayType,
+} from "../../Types/BookLibraryTypes";
 import { Action } from "../reducer";
 
-export const favoriteBooks: FavoriteBooksType[] = [];
-export const readBooks: any[] = [];
+// export const favoriteBooks: FavoriteBooksType[] = [];
+// export const readBooks: any[] = [];
 
-export const BooksArray: any = {
-  favoriteBooks: favoriteBooks,
-  readBooks: readBooks,
+export const initialBooks: BooksArrayType = {
+  favoriteBooks: [],
+  readBooks: [],
 };
 
 export const FavoriteBooksContext = createContext<{
-  state: any;
+  state: BooksArrayType;
   dispatch: React.Dispatch<Action>;
 }>({
-  state: BooksArray,
+  state: initialBooks,
   dispatch: () => null,
 });

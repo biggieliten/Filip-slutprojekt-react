@@ -9,6 +9,7 @@ import DropDown from "../../Components/DropDown";
 const dropDownOptions = [
   { label: "All", link: "https://openlibrary.org/search.json?q=" },
   { label: "Title", link: "https://openlibrary.org/search.json?title=" },
+  //   { label: "Author", link: "https://openlibrary.org/search/authors.json?q=" },
   { label: "Author", link: "https://openlibrary.org/search.json?author=" },
 ];
 

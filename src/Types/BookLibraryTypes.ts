@@ -14,7 +14,7 @@ export type FavoriteBooksType = {
 
 export type BooksArrayType = {
   favoriteBooks: FavoriteBooksType[];
-  readBooks: [];
+  readBooks: any[];
 };
 
 // export type reducerStateType = {

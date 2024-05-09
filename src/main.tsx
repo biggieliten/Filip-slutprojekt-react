@@ -8,6 +8,7 @@ import { FavoriteAuthors } from "./Routes/FavoriteAuthors/FavoriteAuthors";
 import { FavoriteBooks } from "./Routes/FavoriteBooks/FavoriteBooks";
 import { ReadBooks } from "./Routes/ReadBooks/ReadBooks";
 import { BookProvider } from "./State/Books/BookContextProvider";
+import { ReviewForm } from "./Routes/ReviewForm/ReviewForm";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,12 @@ const router = createBrowserRouter([
       {
         path: "read-books",
         element: <ReadBooks />,
+        children: [
+          {
+            path: "review/:key",
+            element: <ReviewForm />,
+          },
+        ],
       },
       {
         path: "favorite-authors",

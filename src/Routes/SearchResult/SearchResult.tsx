@@ -1,15 +1,16 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { FavoriteBooksContext } from "../../State/Books/FavoriteBooksContext";
-
+import { BookCard } from "../../Components/BookCard/BookCard";
 import "../SearchResult/SearchResult.scss";
 import { Book } from "../../Types/BookLibraryTypes";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { Button } from "../../Components/Button/Button";
 
 export const SearchResult = () => {
   const { query } = useParams();
   const queryURL = `https://openlibrary.org/search.json?q=${query}`;
-  const { data } = useFetch<Book[]>(queryURL);
+  const { data, loading, error } = useFetch<Book[]>(queryURL);
 
   const { dispatch, state } = useContext(FavoriteBooksContext);
 
@@ -19,38 +20,34 @@ export const SearchResult = () => {
   const addToFavorites = (book: any) => {
     setFavoriteBook([...favoriteBook, book]);
     dispatch({ type: "FAVORITE_BOOK", payload: book });
-    console.log(state.readBooks, "state of fav");
-    // handleAddDispatch(book);
+    console.log(state.favoriteBooks, "state of fav");
   };
 
   const addToRead = (book: any) => {
     setReadBook([...readBook, book]);
     dispatch({ type: "READ_BOOK", payload: book });
     console.log(state.readBooks, "state of read");
-    // handleAddDispatch(book);
   };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>404 Not Found</p>;
 
   return (
     <div>
       {data &&
         data.map((book: Book) => (
-          <div className={book.key} key={book.key}>
-            <h2>{book.title}</h2>
-            <p>{book.author_name}</p>
-            {book.cover_i ? (
-              <img
-                className="searchedBookImage"
-                src={`https://covers.openlibrary.org/b/id/${book.cover_i}.jpg`}
-                alt=""
-              />
-            ) : (
-              "No img"
-            )}
-            <button onClick={() => addToFavorites(book)}>
-              Add to favorites
-            </button>
-            <button onClick={() => addToRead(book)}>Add to read</button>
-          </div>
+          <>
+            <BookCard
+              title={book.title}
+              cover={book.cover_i}
+              author={book.author_name}
+            />
+            <Button
+              title="Add to Favorites"
+              clickEvent={() => addToFavorites(book)}
+            />
+            <Button title="Add to Read" clickEvent={() => addToRead(book)} />
+          </>
         ))}
     </div>
   );

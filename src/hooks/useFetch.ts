@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 
 function useFetch<T>(url: string) {
   const [data, setData] = useState<T>();
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchAPI = async () => {
+      setLoading(true);
       setError(null);
       try {
         const response = await fetch(url);
@@ -20,13 +22,15 @@ function useFetch<T>(url: string) {
         // console.log(jsonData.docs);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
     if (url) {
       fetchAPI();
     }
   }, [url]);
-  return { data };
+  return { data, loading, error };
 }
 
 export default useFetch;

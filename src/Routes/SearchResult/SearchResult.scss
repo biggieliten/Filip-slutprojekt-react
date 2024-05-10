@@ -1,6 +1,18 @@
-.searchedBookImage {
-  width: 10rem;
-  height: 10rem;
+.searchedBookCard {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  h1 {
+    color: pink;
+  }
+  img {
+    width: 12rem;
+    height: 17rem;
+  }
 }
 
 // .outlet {

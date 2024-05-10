@@ -1,10 +1,10 @@
 type ButtonProps = {
   clickEvent: React.MouseEventHandler<HTMLButtonElement> | any;
-  title: string;
+  placeholder: string;
 };
 
-export const Button = ({ clickEvent, title }: ButtonProps) => (
+export const Button = ({ clickEvent, placeholder }: ButtonProps) => (
   <button className={`Button`} onClick={clickEvent}>
-    {title}
+    {placeholder}
   </button>
 );

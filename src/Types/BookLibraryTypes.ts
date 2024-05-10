@@ -1,7 +1,14 @@
 export type Book = {
   title: string;
-  author_name: string;
+  author_name: any;
   cover_i?: number;
+  key: string;
+  first_publish_year: number;
+  ratings_average: number;
+};
+export type Works = {
+  title: string;
+  subject: string;
   key: string;
 };
 

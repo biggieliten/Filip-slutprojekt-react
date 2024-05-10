@@ -1,0 +1,31 @@
+@use "../sass/mixins";
+@use "../Routes/FavoriteBooks/FavoriteBooks.scss";
+@use "../Routes/ReadBooks/ReadBooks.scss";
+@use "../Routes/SearchResult/SearchResult.scss";
+// @use "../Routes/";
+// @use "../Routes/";
+// @use "../Routes/";
+// @use "../Routes/";
+// @use "../Routes/";
+@use "../Components/NavBar/NavBar.scss";
+@use "../Components/SearchBar/SearchBar.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(46, 46, 46);
+}
+
+.outlet {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(46, 46, 46);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 6.5rem;
+}

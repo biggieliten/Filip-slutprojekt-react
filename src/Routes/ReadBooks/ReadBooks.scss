@@ -1,0 +1,31 @@
+.readBooksPage {
+  width: 70vw;
+  height: 70vh;
+  background-color: rgb(74, 74, 74);
+
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-y: scroll;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .readBookCard {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+
+    height: fit-content;
+    width: fit-content;
+    h1 {
+      color: rgb(148, 96, 0);
+    }
+    img {
+      width: 12rem;
+      height: 17rem;
+    }
+  }
+}

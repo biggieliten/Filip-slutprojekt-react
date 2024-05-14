@@ -1,0 +1,20 @@
+@use "../../sass/mixins" as mixin;
+@use "../../sass/colors" as color;
+
+.searchBtn {
+  width: 5rem;
+  height: 2rem;
+
+  background-color: color.$darkgrey;
+
+  border: none;
+  border-radius: 0.9rem;
+
+  margin-left: 1rem;
+
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1rem;
+  color: white;
+
+  cursor: pointer;
+}

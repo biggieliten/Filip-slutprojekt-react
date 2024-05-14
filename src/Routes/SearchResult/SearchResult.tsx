@@ -34,10 +34,10 @@ export const SearchResult = () => {
   if (error) return <p>404 Not Found</p>;
 
   return (
-    <div>
+    <div className="searchResultSection">
       {data &&
         data.docs.map((book: Book) => (
-          <>
+          <div className="searchedBookCardCont">
             <BookCard
               key={book.key}
               title={book.title}
@@ -48,14 +48,16 @@ export const SearchResult = () => {
               style="searchedBookCard"
             />
             <Button
+              style="addFavoriteBtn"
               placeholder="Add to Favorites"
               clickEvent={() => addToFavorites(book)}
             />
             <Button
+              style="addReadBtn"
               placeholder="Add to Read"
               clickEvent={() => addToRead(book)}
             />
-          </>
+          </div>
         ))}
     </div>
   );

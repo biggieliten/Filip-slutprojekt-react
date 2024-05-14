@@ -4,9 +4,10 @@ import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import SearchBar from "../../Components/SearchBar/SearchBar";
-import DropDown from "../../Components/DropDown";
+import DropDown from "../../Components/DropDown/DropDown";
 import { BooksByGenre } from "../../Components/BooksByGenre/BooksByGenre";
 import { Button } from "../../Components/Button/Button";
+
 const dropDownOptions = [
   { label: "All", link: "https://openlibrary.org/search.json?q=" },
   { label: "Title", link: "https://openlibrary.org/search.json?title=" },
@@ -34,6 +35,7 @@ const HomePage = () => {
     setSearchOption(option);
     // console.log(searchOption);
   };
+  console.log(location.pathname);
 
   return (
     <>
@@ -53,17 +55,25 @@ const HomePage = () => {
             name=""
             onChange={(e: any) => setInput(e.target.value)}
           />
-          <Button clickEvent={handleClick} placeholder="Search"></Button>
+          <Button
+            style="searchBtn"
+            clickEvent={handleClick}
+            placeholder="Search"
+          />
           {/* <button onClick={handleClick}>Search</button> */}
           <label htmlFor=""></label>
 
-          <NavLink to="/favorite-authors">Favorite Authors</NavLink>
-          <NavLink to="/favorite-books">Favorite Books</NavLink>
-          <NavLink to="/read-books">Read Books</NavLink>
+          <div className="navBarLinks">
+            <NavLink to="/favorite-authors">Favorite Authors</NavLink>
+            <NavLink to="/favorite-books">Favorite Books</NavLink>
+            <NavLink to="/read-books">Read Books</NavLink>
+          </div>
         </NavBar>
 
         <div className="scifiBooks">
-          {location.pathname === "/" && <BooksByGenre />}
+          {location.pathname === "/" && <BooksByGenre genre="sci-fi" />}
+          {location.pathname === "/" && <BooksByGenre genre="fantasy" />}
+          {location.pathname === "/" && <BooksByGenre genre="love" />}
           {/* <BooksByGenre subject="horror" /> */}
         </div>
       </div>

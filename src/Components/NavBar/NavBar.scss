@@ -1,14 +1,42 @@
+@use "../../sass/mixins" as mixin;
+
 .navBar {
+  @include mixin.centerStuff($ai: center, $jc: center);
+
+  .logo {
+    position: absolute;
+    left: 2rem;
+
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-weight: 500;
+    font-size: 1.7rem;
+  }
+
+  .navBarLinks {
+    display: flex;
+    justify-content: space-between;
+    width: 20rem;
+
+    position: absolute;
+    right: 2rem;
+
+    & > * {
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: 1.3rem;
+      text-decoration: none;
+      color: rgb(32, 32, 32);
+    }
+  }
+
+  flex-direction: row;
+  position: relative;
+
   width: 100vw;
   height: 6.5rem;
   background-color: rgb(172, 127, 4);
   border-end-start-radius: 1rem;
   border-end-end-radius: 1rem;
-
-  display: flex;
-  flex-direction: row;
-
-  button {
-    width: 2.5rem;
-  }
 }

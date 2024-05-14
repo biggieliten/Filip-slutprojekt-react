@@ -1,4 +1,8 @@
+@use "../../sass/mixins";
+@use "../../sass/colors";
+
 .readBooksPage {
+  @include mixins.bookLayout;
   width: 70vw;
   height: 70vh;
   background-color: rgb(74, 74, 74);
@@ -7,25 +11,27 @@
   padding: 1rem;
   overflow-y: scroll;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  .readBookCard {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   flex-direction: row;
+  //   flex-wrap: wrap;
+  .readCardBox {
     padding: 1rem;
+    margin: 1rem;
     border-radius: 0.5rem;
     background-color: white;
+    .readBookCard {
+      height: 30rem;
+      width: 20rem;
 
-    height: fit-content;
-    width: fit-content;
-    h1 {
-      color: rgb(148, 96, 0);
-    }
-    img {
-      width: 12rem;
-      height: 17rem;
+      h1 {
+        color: rgb(148, 96, 0);
+      }
+      img {
+        width: 8rem;
+        height: 11rem;
+      }
     }
   }
 }

@@ -1,3 +1,9 @@
+@mixin centerStuff($jc, $ai) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
 @mixin bookLayout {
   display: flex;
   justify-content: center;

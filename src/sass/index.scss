@@ -1,9 +1,8 @@
-@use "../sass/mixins";
 @use "../Routes/FavoriteBooks/FavoriteBooks.scss";
 @use "../Routes/ReadBooks/ReadBooks.scss";
 @use "../Routes/SearchResult/SearchResult.scss";
-// @use "../Routes/";
-// @use "../Routes/";
+@use "../Components/BooksByGenre/BooksByGenre.scss";
+@use "../Components/Button/Button.scss";
 // @use "../Routes/";
 // @use "../Routes/";
 // @use "../Routes/";

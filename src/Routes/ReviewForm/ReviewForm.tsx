@@ -8,7 +8,7 @@ import {
 import { ReadBooks } from "../ReadBooks/ReadBooks";
 
 // FavoriteBooksContext
-export const ReviewForm = (bookKey: any) => {
+export const ReviewForm = (bookKey: any, handleClose: any) => {
   const { key } = useParams();
   const [review, setReview] = useState("");
   const [bookKeys, setBookKeys] = useState({});
@@ -24,9 +24,9 @@ export const ReviewForm = (bookKey: any) => {
         key,
       },
     });
-    console.log(bookKey, "bookkey object?");
-    console.log(bookKey.bookKey, "bookkey");
+    bookKey.handleClose();
   };
+
   return (
     <>
       <form action="">
@@ -41,6 +41,7 @@ export const ReviewForm = (bookKey: any) => {
         ></textarea>
       </form>
       <Button
+        style=""
         clickEvent={() => handleClick(bookKey.bookKey)}
         placeholder="Submit"
       ></Button>

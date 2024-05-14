@@ -1,3 +1,5 @@
+import { ImgHTMLAttributes } from "react";
+
 export type Book = {
   title: string;
   author_name: any;
@@ -7,9 +9,12 @@ export type Book = {
   ratings_average: number;
 };
 export type Works = {
+  authors: any;
+  cover_id: number;
   title: string;
   subject: string;
-  key: string;
+  key?: string;
+  first_publish_year: number;
 };
 
 export type FavoriteBooksType = {

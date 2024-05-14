@@ -1,0 +1,11 @@
+@use "../../sass/mixins" as mixin;
+
+.bookByGenreCard {
+  @include mixin.bookLayout;
+  h1 {
+  }
+  img {
+    width: 12rem;
+    height: 17rem;
+  }
+}

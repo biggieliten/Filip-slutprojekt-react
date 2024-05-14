@@ -39,6 +39,7 @@ export const SearchResult = () => {
         data.docs.map((book: Book) => (
           <>
             <BookCard
+              key={book.key}
               title={book.title}
               cover={book.cover_i}
               author={book.author_name}

@@ -17,6 +17,7 @@ export const FavoriteBooks = () => {
             publishDate={books.first_publish_year}
             avgRating={books.ratings_average}
             style="favoriteBookCard"
+            review={books.review}
           />
           {/* <Button title="Remove from favorites" clickEvent={() => {}} /> */}
         </>

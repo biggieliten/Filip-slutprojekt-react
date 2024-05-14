@@ -5,6 +5,8 @@ type BookCardProps = {
   style: string;
   publishDate: number;
   avgRating: number;
+  review?: string;
+  key?: any;
 };
 
 export const BookCard = ({
@@ -14,9 +16,11 @@ export const BookCard = ({
   style,
   publishDate,
   avgRating,
+  key,
+  review,
 }: BookCardProps) => {
   return (
-    <div className={style}>
+    <div key={key} className={style}>
       <h1>{title}</h1>
       {cover ? (
         <img src={`https://covers.openlibrary.org/b/id/${cover}.jpg`} alt="" />
@@ -30,6 +34,7 @@ export const BookCard = ({
       </div>
       <p>{publishDate}</p>
       <p>{avgRating}</p>
+      <p>{review}</p>
       {/* <p>{}</p>
       <p>{}</p>
       <p>{}</p>

@@ -13,10 +13,7 @@ export const FavoriteBooks = () => {
         <>
           <Button
             clickEvent={() =>
-              dispatch({
-                type: "REMOVE_FAVORITE",
-                payload: book.key,
-              })
+              dispatch({ type: "REMOVE_FAVORITE", payload: book.key })
             }
             style=""
             placeholder="x"

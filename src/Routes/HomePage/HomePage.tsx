@@ -21,21 +21,22 @@ const HomePage = () => {
   const [searchOption, setSearchOption] = useState<string>();
 
   const querySearch = searchOption + query;
-  const { data } = useFetch<APIresp>(querySearch);
+
+  useFetch<APIresp>(querySearch);
 
   const navigate = useNavigate();
 
   const handleClick = async () => {
     setQuery(input);
     navigate(`/search-result/${input}`);
-    console.log(data);
+    // console.log(data);
   };
 
   const handleOptionChange = (option: string) => {
     setSearchOption(option);
     // console.log(searchOption);
   };
-  console.log(location.pathname);
+  //   console.log(location.pathname);
 
   return (
     <>

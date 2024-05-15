@@ -11,6 +11,7 @@ import { ReadBooks } from "../ReadBooks/ReadBooks";
 export const ReviewForm = (bookKey: any, handleClose: any) => {
   const { key } = useParams();
   const [review, setReview] = useState("");
+  const [pages, setPages] = useState<any>();
   const [bookKeys, setBookKeys] = useState({});
   const { dispatch, state } = useContext(FavoriteBooksContext);
   //   const [bookKey, setBookKey] = useState<string>("");
@@ -20,6 +21,7 @@ export const ReviewForm = (bookKey: any, handleClose: any) => {
     dispatch({
       type: "ADD_REVIEW",
       payload: {
+        pages,
         review,
         key,
       },
@@ -39,6 +41,13 @@ export const ReviewForm = (bookKey: any, handleClose: any) => {
           name=""
           id=""
         ></textarea>
+        <input
+          type="number"
+          value={pages}
+          onChange={(e) => {
+            setPages(e.target?.value);
+          }}
+        />
       </form>
       <Button
         style=""

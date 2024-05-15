@@ -7,6 +7,7 @@ export type Book = {
   key: string;
   first_publish_year: number;
   ratings_average: number;
+  rating?: number;
 };
 export type Works = {
   authors: any;
@@ -31,7 +32,7 @@ export type ReadBooksType = {
   key: string;
 };
 
-export type BooksArrayType = {
+export type ReducerType = {
   favoriteBooks: FavoriteBooksType[];
   readBooks: ReadBooksType[];
 };

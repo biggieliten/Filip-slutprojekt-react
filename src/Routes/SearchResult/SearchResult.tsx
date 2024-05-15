@@ -7,6 +7,9 @@ import { Book } from "../../Types/BookLibraryTypes";
 import { useContext, useState } from "react";
 import { Button } from "../../Components/Button/Button";
 import { APIresp } from "../../Types/APIResp";
+import RoundNumber from "../../utils/RoundNumber";
+import { ReadBooks } from "../ReadBooks/ReadBooks";
+import ExistsInArray from "../../utils/ExistsInArray";
 
 export const SearchResult = () => {
   const { query } = useParams();
@@ -16,17 +19,30 @@ export const SearchResult = () => {
   const { dispatch, state } = useContext(FavoriteBooksContext);
 
   const [favoriteBook, setFavoriteBook] = useState<APIresp[]>([]);
-  const [readBook, setReadBook] = useState<APIresp[]>([]);
+  const [readBook, setReadBook] = useState<Book[]>([]);
+  //   const [isRead, setIsRead] = useState<boolean>();
 
   const addToFavorites = (book: any) => {
+    const favExists = ExistsInArray(state.favoriteBooks, book.key);
+
+    if (!favExists) {
+      dispatch({ type: "FAVORITE_BOOK", payload: book });
+    }
     setFavoriteBook([...favoriteBook, book]);
-    dispatch({ type: "FAVORITE_BOOK", payload: book });
     console.log(state.favoriteBooks, "state of fav");
   };
 
   const addToRead = (book: any) => {
-    setReadBook([...readBook, book]);
-    dispatch({ type: "READ_BOOK", payload: book });
+    const bookExists = ExistsInArray(state.readBooks, book.key);
+    // const isBookRead = (book: Book) => {
+    //   return state.readBooks.some((books) => books.key === book.key);
+    // };
+    console.log(book.key);
+    if (!bookExists) {
+      //   setReadBook([...readBook, book]);
+      // setIsRead(true);
+      dispatch({ type: "READ_BOOK", payload: book });
+    }
     console.log(state.readBooks, "state of read");
   };
 
@@ -44,7 +60,9 @@ export const SearchResult = () => {
               cover={book.cover_i}
               author={book.author_name}
               publishDate={book.first_publish_year}
-              avgRating={book.ratings_average}
+              avgRating={
+                book.ratings_average && RoundNumber(book.ratings_average)
+              }
               style="searchedBookCard"
             />
             <Button

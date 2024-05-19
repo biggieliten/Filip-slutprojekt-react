@@ -1,7 +1,7 @@
 type InputTypes = {
   inputType: string;
   onChange?: React.FormEventHandler;
-  value?: any;
+  value?: string | number;
   name: string;
   navBarClass: string;
   placeholder: string;

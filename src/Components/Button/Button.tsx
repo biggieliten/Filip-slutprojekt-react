@@ -1,5 +1,5 @@
 type ButtonProps = {
-  clickEvent: React.MouseEventHandler<HTMLButtonElement> | any;
+  clickEvent: React.MouseEventHandler<HTMLButtonElement>;
   placeholder: string;
   style: string;
 };

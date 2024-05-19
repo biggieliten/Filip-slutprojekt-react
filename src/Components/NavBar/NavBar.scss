@@ -3,6 +3,14 @@
 .navBar {
   @include mixin.centerStuff($ai: center, $jc: center);
 
+  width: 100vw;
+  flex-direction: row;
+  position: relative;
+  height: 6.5rem;
+  background-color: rgb(172, 127, 4);
+  border-end-start-radius: 1rem;
+  border-end-end-radius: 1rem;
+
   .logo {
     position: absolute;
     left: 2rem;
@@ -30,13 +38,4 @@
       color: rgb(32, 32, 32);
     }
   }
-
-  flex-direction: row;
-  position: relative;
-
-  width: 100vw;
-  height: 6.5rem;
-  background-color: rgb(172, 127, 4);
-  border-end-start-radius: 1rem;
-  border-end-end-radius: 1rem;
 }

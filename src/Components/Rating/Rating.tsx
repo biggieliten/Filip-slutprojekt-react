@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 
-type StarRatingProps = {
+export type StarRatingProps = {
   setStarRating: (value: number) => void;
   bookRating: number;
 };

@@ -1,13 +1,14 @@
 import { BookCard } from "../../Components/BookCard/BookCard";
-import { useContext, useEffect, useState } from "react";
+import React, { ReactNode, useContext, useEffect, useState } from "react";
 import { FavoriteBooksContext } from "../../State/Books/FavoriteBooksContext";
 import "./ReadBooks.scss";
 import { Button } from "../../Components/Button/Button";
 import { ReviewForm } from "../ReviewForm/ReviewForm";
-import { StarRating } from "../../Components/Rating/Rating";
+import { StarRating, StarRatingProps } from "../../Components/Rating/Rating";
 import RoundNumber from "../../utils/RoundNumber";
+import { Book } from "../../Types/types";
 
-export const ReadBooks = () => {
+export const ReadBooks = (): ReactNode => {
   const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
 
   const { state, dispatch } = useContext(FavoriteBooksContext);
@@ -29,7 +30,7 @@ export const ReadBooks = () => {
 
   useEffect(() => {
     const totalAmountPages = state.readBooks.reduce(
-      (sum: number, book: any) => sum + book.pages,
+      (sum: number, book: Book) => sum + book.pages,
       0
     );
     setAmountPages(totalAmountPages);
@@ -43,12 +44,15 @@ export const ReadBooks = () => {
       <div className="readBooksPage">
         <div className="amountOfBooks"></div>
         {state &&
-          state.readBooks.map((book: any, index: number) => (
+          state.readBooks.map((book: Book) => (
             <>
               <div className="readCardBox">
                 <Button
                   clickEvent={() =>
-                    dispatch({ type: "REMOVE_READ", payload: book.key })
+                    dispatch({
+                      type: "REMOVE_READ",
+                      payload: { key: book.key },
+                    })
                   }
                   style=""
                   placeholder="x"
@@ -68,13 +72,13 @@ export const ReadBooks = () => {
                   // ))}
                   rating={
                     <StarRating
-                      setStarRating={(rating: any) =>
+                      setStarRating={(rating: number) =>
                         dispatch({
                           type: "ADD_RATING",
                           payload: { rating: rating, bookKey: book.key },
                         })
                       }
-                      bookRating={book.rating}
+                      bookRating={book.rating || 0}
                     />
                   }
                   style="readBookCard"

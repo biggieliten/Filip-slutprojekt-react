@@ -54,7 +54,9 @@ const HomePage = () => {
             placeholder="Sök bok, författare, genre...."
             inputType="text"
             name=""
-            onChange={(e: any) => setInput(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setInput(e.target.value)
+            }
           />
           <Button
             style="searchBtn"
@@ -71,12 +73,14 @@ const HomePage = () => {
           </div>
         </NavBar>
 
-        <div className="scifiBooks">
-          {location.pathname === "/" && <BooksByGenre genre="sci-fi" />}
-          {location.pathname === "/" && <BooksByGenre genre="fantasy" />}
-          {location.pathname === "/" && <BooksByGenre genre="love" />}
-          {/* <BooksByGenre subject="horror" /> */}
-        </div>
+        {location.pathname === "/" && (
+          <div className="booksByGenre">
+            {location.pathname === "/" && <BooksByGenre genre="sci-fi" />}
+            {location.pathname === "/" && <BooksByGenre genre="fantasy" />}
+            {location.pathname === "/" && <BooksByGenre genre="love" />}
+            {/* <BooksByGenre subject="horror" /> */}
+          </div>
+        )}
       </div>
       <div className="outlet">
         <Outlet />

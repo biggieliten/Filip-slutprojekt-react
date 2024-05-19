@@ -1,11 +1,60 @@
 @use "../../sass/mixins" as mixin;
+@use "../../sass/fonts" as font;
 
-.bookByGenreCard {
-  @include mixin.bookLayout;
-  h1 {
-  }
-  img {
-    width: 12rem;
-    height: 17rem;
+// .container {
+//   width: 90vw;
+//   height: 100vh;
+//   flex-direction: column;
+.genre {
+  color: white;
+  align-self: center;
+  height: fit-content;
+  width: fit-content;
+  font-family: font.$mainfont;
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  padding-top: 1rem;
+  text-transform: uppercase;
+  margin-top: 0.8rem;
+}
+.cardContainer {
+  @include mixin.centerStuff(center, center);
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  .bookByGenreCard {
+    @include mixin.bookLayout;
+    flex-direction: row;
+    width: 18rem;
+
+    height: 30rem;
+    background-color: white;
+
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+
+    flex-wrap: wrap;
+
+    border-radius: 0.5rem;
+
+    h1 {
+      font-family: font.$mainfont;
+      font-size: 1rem;
+    }
+    h3 {
+      font-family: font.$mainfont;
+      font-weight: 200;
+    }
+    img {
+      border-radius: 0.3rem;
+      width: 15rem;
+      height: 22rem;
+    }
   }
 }
+// }

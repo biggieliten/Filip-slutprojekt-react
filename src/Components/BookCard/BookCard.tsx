@@ -1,18 +1,18 @@
-import React, { FunctionComponentFactory } from "react";
+import React from "react";
 import "./BookCard.scss";
 
-type BookCardProps = {
+export type BookCardProps = {
   title: string;
-  cover: any;
-  author: any;
+  cover: string | number;
+  author: string;
   style: string;
-  publishDate: number;
+  publishDate?: number;
   avgRating?: number;
   review?: string;
-  key?: any;
-  rating?: any;
-  genre?: any;
-  pages?: any;
+  key?: string;
+  rating?: React.ReactNode;
+  genre?: string;
+  pages?: number;
 };
 
 export const BookCard = ({
@@ -36,11 +36,15 @@ export const BookCard = ({
       ) : (
         "No image"
       )}
-      <h3>Author: {author}</h3>
-      <p>Published: {publishDate}</p>
+      <h3> {author}</h3>
+      {publishDate && <p>Published: {publishDate}</p>}
       {/* <p>Genre: {genre.slice(0, 2)}</p> */}
-      {avgRating ? <p>Avrage Rating: {avgRating}</p> : <p>No avrage rating</p>}
-      <>Your Rating: {rating}</>
+      {avgRating ? (
+        <p>Avrage Rating: {avgRating}</p>
+      ) : (
+        avgRating && <p>No avrage rating</p>
+      )}
+      {rating && <p>Your Rating: {rating}</p>}
       {pages && <p>Pages: {pages}</p>}
       {review && <p>Review: {review}</p>}
       {/* <p>{}</p>

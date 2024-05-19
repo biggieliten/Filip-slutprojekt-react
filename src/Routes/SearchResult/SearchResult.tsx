@@ -3,7 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import { FavoriteBooksContext } from "../../State/Books/FavoriteBooksContext";
 import { BookCard } from "../../Components/BookCard/BookCard";
 import "../SearchResult/SearchResult.scss";
-import { Book } from "../../Types/BookLibraryTypes";
+import { Book } from "../../Types/types";
 import { useContext, useState } from "react";
 import { Button } from "../../Components/Button/Button";
 import { APIresp } from "../../Types/APIResp";
@@ -18,32 +18,35 @@ export const SearchResult = () => {
 
   const { dispatch, state } = useContext(FavoriteBooksContext);
 
-  const [favoriteBook, setFavoriteBook] = useState<APIresp[]>([]);
-  const [readBook, setReadBook] = useState<Book[]>([]);
+  const [favoriteBook, setFavoriteBook] = useState<Book[]>([]);
+  //   const [readBook, setReadBook] = useState<Book[]>([]);
   //   const [isRead, setIsRead] = useState<boolean>();
 
-  const addToFavorites = (book: any) => {
+  const addToFavorites = (book: Book) => {
     const favExists = ExistsInArray(state.favoriteBooks, book.key);
 
     if (!favExists) {
       dispatch({ type: "FAVORITE_BOOK", payload: book });
     }
     setFavoriteBook([...favoriteBook, book]);
-    console.log(state.favoriteBooks, "state of fav");
+    // console.log(state.favoriteBooks, "state of fav");
   };
 
-  const addToRead = (book: any) => {
+  const addToRead = (book: Book) => {
     const bookExists = ExistsInArray(state.readBooks, book.key);
     // const isBookRead = (book: Book) => {
     //   return state.readBooks.some((books) => books.key === book.key);
     // };
-    console.log(book.key);
+    // console.log(book.key);
     if (!bookExists) {
       //   setReadBook([...readBook, book]);
       // setIsRead(true);
-      dispatch({ type: "READ_BOOK", payload: book });
+      dispatch({
+        type: "READ_BOOK",
+        payload: { book: { ...book, key: book.key } },
+      });
     }
-    console.log(state.readBooks, "state of read");
+    // console.log(state.readBooks, "state of read");
   };
 
   if (loading) return <p>Loading...</p>;

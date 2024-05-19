@@ -2,6 +2,13 @@
 
 .favoriteBooksPage {
   @include mixins.bookLayout;
+  width: 70vw;
+  height: 70vh;
+  background-color: rgb(74, 74, 74);
+
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-y: scroll;
   //   display: flex;
   //   justify-content: center;
   //   align-items: center;
@@ -9,14 +16,14 @@
   //   flex-wrap: wrap;
   .favoriteBookCard {
     margin: 1rem;
-    height: fit-content;
-    width: fit-content;
+    height: 30rem;
+    width: 20rem;
     h1 {
-      color: pink;
+      color: rgb(148, 96, 0);
     }
     img {
-      width: 12rem;
-      height: 17rem;
+      width: 8rem;
+      height: 11rem;
     }
   }
 }

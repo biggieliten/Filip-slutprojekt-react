@@ -4,16 +4,17 @@ import { FavoriteBooksContext } from "../../State/Books/FavoriteBooksContext";
 import { ReadBooks } from "../ReadBooks/ReadBooks";
 import { BookCard } from "../../Components/BookCard/BookCard";
 import { Button } from "../../Components/Button/Button";
+import { Book } from "../../Types/types";
 
 export const FavoriteBooks = () => {
   const { state, dispatch } = useContext(FavoriteBooksContext);
   return (
     <div className="favoriteBooksPage">
-      {state.favoriteBooks.map((book: any) => (
+      {state.favoriteBooks.map((book: Book) => (
         <>
           <Button
             clickEvent={() =>
-              dispatch({ type: "REMOVE_FAVORITE", payload: book.key })
+              dispatch({ type: "REMOVE_FAVORITE", payload: { key: book.key } })
             }
             style=""
             placeholder="x"

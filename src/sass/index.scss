@@ -8,7 +8,7 @@
 // @use "../Routes/";
 @use "../Components/NavBar/NavBar.scss";
 @use "../Components/SearchBar/SearchBar.scss";
-
+@use "../Routes/HomePage/HomePage.scss";
 * {
   margin: 0;
   padding: 0;
@@ -17,14 +17,4 @@
 
 body {
   background-color: rgb(46, 46, 46);
-}
-
-.outlet {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(46, 46, 46);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 6.5rem;
 }

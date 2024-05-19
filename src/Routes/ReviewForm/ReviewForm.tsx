@@ -1,17 +1,17 @@
 import { useParams } from "react-router-dom";
 import { Button } from "../../Components/Button/Button";
-import { useContext, useState } from "react";
-import {
-  FavoriteBooksContext,
-  initialBooks,
-} from "../../State/Books/FavoriteBooksContext";
-import { ReadBooks } from "../ReadBooks/ReadBooks";
+import { ChangeEventHandler, useContext, useState } from "react";
+import { FavoriteBooksContext } from "../../State/Books/FavoriteBooksContext";
 
+type bookKey = {
+  bookKey: string;
+  handleClose: () => void;
+};
 // FavoriteBooksContext
-export const ReviewForm = (bookKey: any, handleClose: any) => {
+export const ReviewForm = (bookKey: bookKey) => {
   const { key } = useParams();
   const [review, setReview] = useState("");
-  const [pages, setPages] = useState<any>();
+  const [pages, setPages] = useState<number>();
   const [bookKeys, setBookKeys] = useState({});
   const { dispatch, state } = useContext(FavoriteBooksContext);
   //   const [bookKey, setBookKey] = useState<string>("");
@@ -45,7 +45,7 @@ export const ReviewForm = (bookKey: any, handleClose: any) => {
           type="number"
           value={pages}
           onChange={(e) => {
-            setPages(e.target?.value);
+            setPages(Number(e.target?.value));
           }}
         />
       </form>

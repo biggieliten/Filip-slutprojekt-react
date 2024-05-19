@@ -1,10 +1,11 @@
 import { createContext } from "react";
-import { FavoriteBooksType, ReducerType } from "../../Types/BookLibraryTypes";
+import { Book, ReducerType } from "../../Types/types";
 import { Action } from "../reducer";
 
-// export const favoriteBooks: FavoriteBooksType[] = [];
-// export const readBooks: any[] = [];
-
+export type State = {
+  favoriteBooks: Book[];
+  readBooks: Book[];
+};
 export const initialBooks: ReducerType = {
   favoriteBooks: [],
   readBooks: [],

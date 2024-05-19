@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
+
 type NavBarProps = {
   navBarStyle: string;
-  children: any;
+  children: ReactNode;
 };
 
 export const NavBar = ({ navBarStyle, children }: NavBarProps) => {

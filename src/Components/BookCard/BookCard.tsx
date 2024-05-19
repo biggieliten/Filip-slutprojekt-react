@@ -47,10 +47,6 @@ export const BookCard = ({
       {rating && <p>Your Rating: {rating}</p>}
       {pages && <p>Pages: {pages}</p>}
       {review && <p>Review: {review}</p>}
-      {/* <p>{}</p>
-      <p>{}</p>
-      <p>{}</p>
-      <p>{}</p> */}
     </div>
   );
 };

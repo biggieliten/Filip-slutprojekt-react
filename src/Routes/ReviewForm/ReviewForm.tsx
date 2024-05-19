@@ -1,24 +1,22 @@
 import { useParams } from "react-router-dom";
 import { Button } from "../../Components/Button/Button";
-import { ChangeEventHandler, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { FavoriteBooksContext } from "../../State/Books/FavoriteBooksContext";
+import "./ReviewForm.scss";
 
-type bookKey = {
+type BookKeyType = {
   bookKey?: string;
   handleClose?: () => void;
 };
+
 // FavoriteBooksContext
-export const ReviewForm = (bookKey: bookKey) => {
+export const ReviewForm = (bookKey: BookKeyType) => {
   const { key } = useParams();
   const [review, setReview] = useState("");
   const [pages, setPages] = useState<number>();
-  const [bookKeys, setBookKeys] = useState({});
-  const { dispatch, state } = useContext(FavoriteBooksContext);
-  //   const [bookKey, setBookKey] = useState<string>("");
+  const { dispatch } = useContext(FavoriteBooksContext);
 
   const handleClick = (key?: string) => {
-    // setBookKey(key);
-
     dispatch({
       type: "ADD_REVIEW",
       payload: {

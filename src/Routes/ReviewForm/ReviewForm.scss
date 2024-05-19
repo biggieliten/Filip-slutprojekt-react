@@ -1,0 +1,32 @@
+@use "../../sass/mixins" as mixins;
+@use "../../sass/colors" as color;
+@use "../../sass/fonts" as font;
+form {
+  @include mixins.centerStuff(center, center);
+  //   padding: 0.5rem;
+  textarea {
+    border: 1px rgba(0, 0, 0, 0.384) solid;
+    border-radius: 0.4rem;
+    margin-right: 0.5rem;
+  }
+
+  input {
+    width: 5rem;
+    height: 3rem;
+  }
+}
+
+button {
+  padding: 0.2rem;
+  margin: 0.2rem;
+
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.384);
+  border-radius: 0.3rem;
+
+  color: color.$mainorange;
+  font-family: font.$mainfont;
+  font-size: 1rem;
+
+  cursor: pointer;
+}

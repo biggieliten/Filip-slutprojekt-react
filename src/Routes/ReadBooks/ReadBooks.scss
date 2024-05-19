@@ -5,7 +5,7 @@
 .readBooksPage {
   @include mixins.bookLayout;
   width: 70vw;
-  height: 70vh;
+  height: 75vh;
   background-color: rgb(74, 74, 74);
 
   border-radius: 0.5rem;
@@ -17,12 +17,14 @@
     margin: 1rem;
     border-radius: 0.5rem;
     background-color: white;
+    overflow-y: scroll;
     .readBookCard {
       @include mixins.centerStuff(center, center);
       flex-direction: column;
       height: 30rem;
       width: 20rem;
 
+      margin: 1rem;
       h1 {
         color: rgb(148, 96, 0);
         font-family: font.$mainfont;

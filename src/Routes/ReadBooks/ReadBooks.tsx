@@ -66,7 +66,7 @@ export const ReadBooks = (): ReactNode => {
                 <BookCard
                   title={book.title}
                   cover={book.cover_i}
-                  author={book.author_name ? book.author_name[0] : "Unknown"}
+                  author={book.author_name ? book.author_name : "Unknown"}
                   publishDate={book.first_publish_year}
                   avgRating={
                     book.ratings_average && RoundNumber(book.ratings_average)

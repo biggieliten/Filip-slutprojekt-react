@@ -34,7 +34,7 @@ export const BookCard = ({
       {cover ? (
         <img src={`https://covers.openlibrary.org/b/id/${cover}.jpg`} alt="" />
       ) : (
-        "No image"
+        <img src="https://media.istockphoto.com/id/1055079680/vector/black-linear-photo-camera-like-no-image-available.jpg?s=612x612&w=0&k=20&c=P1DebpeMIAtXj_ZbVsKVvg-duuL0v9DlrOZUvPG6UJk=" />
       )}
       {author && <h3> {author}</h3>}
       <div className={""}>

@@ -36,17 +36,19 @@ export const BookCard = ({
       ) : (
         "No image"
       )}
-      {author && <h3> {author[0]}</h3>}
-      {publishDate && <p>Published: {publishDate}</p>}
-      {genre && <p>Genre: {genre[0]}</p>}
-      {avgRating ? (
-        <p>Avrage Rating: {avgRating}</p>
-      ) : (
-        avgRating && <p>No avrage rating</p>
-      )}
-      {rating && <p>Your Rating: {rating}</p>}
-      {pages && <p>Pages: {pages}</p>}
-      {review && <p>Review: {review}</p>}
+      {author && <h3> {author}</h3>}
+      <div className={""}>
+        {publishDate && <p>Published: {publishDate}</p>}
+        {genre && <p>Genre: {genre[0]}</p>}
+        {avgRating ? (
+          <p>Avrage Rating: {avgRating}</p>
+        ) : (
+          avgRating && <p>No avrage rating</p>
+        )}
+        {rating && <p>Your Rating: {rating}</p>}
+        {pages && <p>Pages: {pages}</p>}
+        {review && <p>Review: {review}</p>}
+      </div>
     </div>
   );
 };

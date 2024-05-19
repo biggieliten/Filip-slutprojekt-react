@@ -17,6 +17,7 @@
     margin: 1rem;
     border-radius: 0.5rem;
     background-color: white;
+
     .favoriteBookCard {
       @include mixins.centerStuff(center, center);
       flex-direction: column;
@@ -27,13 +28,14 @@
         font-family: font.$mainfont;
       }
       img {
-        width: 8rem;
-        height: 11rem;
+        width: 14rem;
+        height: 22rem;
       }
       p {
         font-family: font.$mainfont;
       }
     }
+
     .removeFavorite {
       @include mixins.removeButton(font.$mainfont, orange);
       font-size: 2rem;

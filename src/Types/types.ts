@@ -12,6 +12,7 @@ export type Book = {
   review: string;
   pages: number;
   subject?: any;
+  //   subject?: string[];
 };
 export type Works = {
   authors: { name: string }[];

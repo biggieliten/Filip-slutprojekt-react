@@ -4,6 +4,7 @@ import { FavoriteBooksContext } from "../../State/Books/FavoriteBooksContext";
 import { BookCard } from "../../Components/BookCard/BookCard";
 import { Button } from "../../Components/Button/Button";
 import { Book } from "../../Types/types";
+import RoundNumber from "../../utils/RoundNumber";
 
 export const FavoriteBooks = () => {
   const { state, dispatch } = useContext(FavoriteBooksContext);
@@ -23,7 +24,10 @@ export const FavoriteBooks = () => {
             cover={book.cover_i}
             author={book.author_name}
             publishDate={book.first_publish_year}
-            avgRating={book.ratings_average}
+            avgRating={
+              book.ratings_average && RoundNumber(book.ratings_average)
+            }
+            genre={book.subject}
             style="favoriteBookCard"
             review={book.review}
           />

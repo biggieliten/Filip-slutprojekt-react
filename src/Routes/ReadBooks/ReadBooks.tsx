@@ -15,17 +15,14 @@ export const ReadBooks = (): ReactNode => {
   const [amountRead, setAmountRead] = useState<number>();
   const [amountPages, setAmountPages] = useState<number>();
   const [bookKey, setBookKey] = useState<string>("");
-  console.log(state, "read book state");
 
   const handleCloseReviewForm = () => {
     setIsReviewFormOpen(false);
-    console.log("close");
   };
 
   const handleOpenReviewForm = (key: string) => {
     setBookKey(key);
     setIsReviewFormOpen(true);
-    console.log("close");
   };
 
   useEffect(() => {
@@ -41,11 +38,8 @@ export const ReadBooks = (): ReactNode => {
     <>
       <div className="statistics">
         <h1>Read Books: {amountRead}</h1>
-        {amountPages === 0 ? (
-          <h1>Total read pages: 0</h1>
-        ) : (
-          <h1>Total read pages: {amountPages}</h1>
-        )}
+
+        <h1>Total read pages: {amountPages ? amountPages : 0}</h1>
       </div>
       <div className="readBooksPage">
         <div className="amountOfBooks"></div>
@@ -73,10 +67,6 @@ export const ReadBooks = (): ReactNode => {
                   }
                   review={book.review}
                   pages={book.pages}
-                  //   genre={book.subject}
-                  // genre={book.subject.map((s: string) => (
-                  //   <li className="cardSubjectList">{s}</li>
-                  // ))}
                   rating={
                     <StarRating
                       setStarRating={(rating: number) =>

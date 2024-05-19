@@ -1,7 +1,6 @@
-import { Book } from "../Types/BookLibraryTypes";
+import { Book } from "../Types/types";
 
-const ExistsInArray = (array: any, prop: string): boolean => {
-  console.log(array, "exist array");
+const ExistsInArray = (array: Book[], prop: string): boolean => {
   return array.some((item: Book) => item.key === prop);
 };
 

@@ -3,7 +3,6 @@
 @use "../../sass/fonts" as font;
 form {
   @include mixins.centerStuff(center, center);
-  //   padding: 0.5rem;
   textarea {
     border: 1px rgba(0, 0, 0, 0.384) solid;
     border-radius: 0.4rem;

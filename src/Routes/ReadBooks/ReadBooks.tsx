@@ -32,7 +32,7 @@ export const ReadBooks = (): ReactNode => {
     );
     setAmountPages(totalAmountPages);
     setAmountRead(state.readBooks.length);
-  }, [amountRead, amountPages]);
+  }, [amountPages]);
 
   return (
     <>

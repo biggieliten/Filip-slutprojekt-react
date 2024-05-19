@@ -25,6 +25,7 @@ const SearchBar = ({
           onChange={onChange}
           value={value}
           placeholder={placeholder}
+          //   onKeyDown={() => onchange}
         />
         {/* <button onClick={handleClick}>Search</button> */}
       </div>

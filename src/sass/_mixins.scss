@@ -11,3 +11,9 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+@mixin removeButton($font, $color) {
+  border: none;
+  background-color: transparent;
+  font-family: $font;
+  color: $color;
+}

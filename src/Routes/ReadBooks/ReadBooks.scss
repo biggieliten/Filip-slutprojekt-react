@@ -1,5 +1,6 @@
-@use "../../sass/mixins";
-@use "../../sass/colors";
+@use "../../sass/mixins" as mixins;
+@use "../../sass/colors" as color;
+@use "../../sass/fonts" as font;
 
 .readBooksPage {
   @include mixins.bookLayout;
@@ -11,27 +12,40 @@
   padding: 1rem;
   overflow-y: scroll;
 
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   flex-direction: row;
-  //   flex-wrap: wrap;
   .readCardBox {
     padding: 1rem;
     margin: 1rem;
     border-radius: 0.5rem;
     background-color: white;
     .readBookCard {
+      @include mixins.centerStuff(center, center);
+      flex-direction: column;
       height: 30rem;
       width: 20rem;
 
       h1 {
         color: rgb(148, 96, 0);
+        font-family: font.$mainfont;
       }
       img {
-        width: 8rem;
-        height: 11rem;
+        width: 10rem;
+        height: 15rem;
+      }
+      p {
+        font-family: font.$mainfont;
       }
     }
+    .removeRead {
+      @include mixins.removeButton(font.$mainfont, orange);
+      font-size: 2rem;
+      text-shadow: 0px 0px 15px black;
+      cursor: pointer;
+    }
   }
+}
+
+.statistics h1 {
+  @include mixins.centerStuff(center, center);
+  color: color.$mainorange;
+  font-family: font.$mainfont;
 }

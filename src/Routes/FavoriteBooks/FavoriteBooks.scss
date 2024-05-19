@@ -1,4 +1,6 @@
-@use "../../sass/mixins";
+@use "../../sass/mixins" as mixins;
+@use "../../sass/colors";
+@use "../../sass/fonts" as font;
 
 .favoriteBooksPage {
   @include mixins.bookLayout;
@@ -9,21 +11,34 @@
   border-radius: 0.5rem;
   padding: 1rem;
   overflow-y: scroll;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   flex-direction: row;
-  //   flex-wrap: wrap;
-  .favoriteBookCard {
+
+  .favoritCardBox {
+    padding: 1rem;
     margin: 1rem;
-    height: 30rem;
-    width: 20rem;
-    h1 {
-      color: rgb(148, 96, 0);
+    border-radius: 0.5rem;
+    background-color: white;
+    .favoriteBookCard {
+      @include mixins.centerStuff(center, center);
+      flex-direction: column;
+      height: 30rem;
+      width: 20rem;
+      h1 {
+        color: rgb(148, 96, 0);
+        font-family: font.$mainfont;
+      }
+      img {
+        width: 8rem;
+        height: 11rem;
+      }
+      p {
+        font-family: font.$mainfont;
+      }
     }
-    img {
-      width: 8rem;
-      height: 11rem;
+    .removeFavorite {
+      @include mixins.removeButton(font.$mainfont, orange);
+      font-size: 2rem;
+      text-shadow: 0px 0px 15px black;
+      cursor: pointer;
     }
   }
 }

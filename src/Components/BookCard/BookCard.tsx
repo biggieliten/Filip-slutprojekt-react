@@ -11,7 +11,7 @@ export type BookCardProps = {
   review?: string;
   key?: string;
   rating?: React.ReactNode;
-  genre?: string;
+  genre?: string[];
   pages?: number;
 };
 
@@ -36,9 +36,9 @@ export const BookCard = ({
       ) : (
         "No image"
       )}
-      <h3> {author}</h3>
+      {author && <h3> {author[0]}</h3>}
       {publishDate && <p>Published: {publishDate}</p>}
-      {/* <p>Genre: {genre.slice(0, 2)}</p> */}
+      {genre && <p>Genre: {genre[0]}</p>}
       {avgRating ? (
         <p>Avrage Rating: {avgRating}</p>
       ) : (

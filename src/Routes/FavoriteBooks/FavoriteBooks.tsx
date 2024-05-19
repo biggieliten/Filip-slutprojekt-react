@@ -1,7 +1,6 @@
 import "./FavoriteBooks.scss";
 import { useContext } from "react";
 import { FavoriteBooksContext } from "../../State/Books/FavoriteBooksContext";
-import { ReadBooks } from "../ReadBooks/ReadBooks";
 import { BookCard } from "../../Components/BookCard/BookCard";
 import { Button } from "../../Components/Button/Button";
 import { Book } from "../../Types/types";
@@ -11,13 +10,13 @@ export const FavoriteBooks = () => {
   return (
     <div className="favoriteBooksPage">
       {state.favoriteBooks.map((book: Book) => (
-        <>
+        <div className="favoritCardBox">
           <Button
             clickEvent={() =>
               dispatch({ type: "REMOVE_FAVORITE", payload: { key: book.key } })
             }
-            style=""
-            placeholder="x"
+            style="removeFavorite"
+            placeholder="&times;"
           />
           <BookCard
             title={book.title}
@@ -28,8 +27,7 @@ export const FavoriteBooks = () => {
             style="favoriteBookCard"
             review={book.review}
           />
-          {/* <Button title="Remove from favorites" clickEvent={() => {}} /> */}
-        </>
+        </div>
       ))}
     </div>
   );

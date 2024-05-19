@@ -11,6 +11,7 @@ export type Book = {
   rating?: number;
   review: string;
   pages: number;
+  subject?: any;
 };
 export type Works = {
   authors: { name: string }[];

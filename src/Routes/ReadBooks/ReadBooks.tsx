@@ -39,8 +39,14 @@ export const ReadBooks = (): ReactNode => {
 
   return (
     <>
-      <h1>Read Books: {amountRead}</h1>
-      <h1>Total read pages: {amountPages}</h1>
+      <div className="statistics">
+        <h1>Read Books: {amountRead}</h1>
+        {amountPages === 0 ? (
+          <h1>Total read pages: 0</h1>
+        ) : (
+          <h1>Total read pages: {amountPages}</h1>
+        )}
+      </div>
       <div className="readBooksPage">
         <div className="amountOfBooks"></div>
         {state &&
@@ -54,8 +60,8 @@ export const ReadBooks = (): ReactNode => {
                       payload: { key: book.key },
                     })
                   }
-                  style=""
-                  placeholder="x"
+                  style="removeRead"
+                  placeholder="&times;"
                 />
                 <BookCard
                   title={book.title}
@@ -67,6 +73,7 @@ export const ReadBooks = (): ReactNode => {
                   }
                   review={book.review}
                   pages={book.pages}
+                  //   genre={book.subject}
                   // genre={book.subject.map((s: string) => (
                   //   <li className="cardSubjectList">{s}</li>
                   // ))}

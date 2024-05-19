@@ -4,8 +4,8 @@ import { ChangeEventHandler, useContext, useState } from "react";
 import { FavoriteBooksContext } from "../../State/Books/FavoriteBooksContext";
 
 type bookKey = {
-  bookKey: string;
-  handleClose: () => void;
+  bookKey?: string;
+  handleClose?: () => void;
 };
 // FavoriteBooksContext
 export const ReviewForm = (bookKey: bookKey) => {
@@ -16,8 +16,9 @@ export const ReviewForm = (bookKey: bookKey) => {
   const { dispatch, state } = useContext(FavoriteBooksContext);
   //   const [bookKey, setBookKey] = useState<string>("");
 
-  const handleClick = (key: string) => {
+  const handleClick = (key?: string) => {
     // setBookKey(key);
+
     dispatch({
       type: "ADD_REVIEW",
       payload: {
@@ -26,7 +27,7 @@ export const ReviewForm = (bookKey: bookKey) => {
         key,
       },
     });
-    bookKey.handleClose();
+    bookKey?.handleClose?.();
   };
 
   return (
@@ -51,7 +52,7 @@ export const ReviewForm = (bookKey: bookKey) => {
       </form>
       <Button
         style=""
-        clickEvent={() => handleClick(bookKey.bookKey)}
+        clickEvent={() => handleClick(bookKey?.bookKey)}
         placeholder="Submit"
       ></Button>
     </>

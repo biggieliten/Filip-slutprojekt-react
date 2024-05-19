@@ -56,7 +56,7 @@ export const SearchResult = () => {
     <div className="searchResultSection">
       {data &&
         data.docs.map((book: Book) => (
-          <div className="searchedBookCardCont">
+          <div className="searchedBookCont">
             <BookCard
               key={book.key}
               title={book.title}
@@ -66,18 +66,21 @@ export const SearchResult = () => {
               avgRating={
                 book.ratings_average && RoundNumber(book.ratings_average)
               }
+              genre={book.subject && book.subject}
               style="searchedBookCard"
             />
-            <Button
-              style="addFavoriteBtn"
-              placeholder="Add to Favorites"
-              clickEvent={() => addToFavorites(book)}
-            />
-            <Button
-              style="addReadBtn"
-              placeholder="Add to Read"
-              clickEvent={() => addToRead(book)}
-            />
+            <div className="buttonCont">
+              <Button
+                style="addFavoriteBtn"
+                placeholder="Add to Favorites"
+                clickEvent={() => addToFavorites(book)}
+              />
+              <Button
+                style="addReadBtn"
+                placeholder="Add to Read"
+                clickEvent={() => addToRead(book)}
+              />
+            </div>
           </div>
         ))}
     </div>

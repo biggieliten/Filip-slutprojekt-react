@@ -1,29 +1,68 @@
-@use "../../sass/mixins" as mixin;
+@use "../../sass/mixins" as mixins;
 @use "../../sass/colors" as color;
+@use "../../sass/fonts" as font;
 
 .searchResultSection {
-  @include mixin.bookLayout;
-  width: 70vw;
-  height: 70vh;
+  @include mixins.bookLayout;
+  width: 85vw;
+  height: 80vh;
   background-color: rgb(74, 74, 74);
 
   border-radius: 0.5rem;
-  padding: 1rem;
+  //   padding: 1rem;
   overflow-y: scroll;
-  .searchedBookCardCont {
-    height: 30rem;
-    width: 20rem;
+  .searchedBookCont {
     padding: 1rem;
     margin: 1rem;
     border-radius: 0.5rem;
     background-color: white;
+    // flex-direction: column;
+    height: 35rem;
+    width: 25rem;
+    position: relative;
+
+    .buttonCont {
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      position: absolute;
+      bottom: 0px;
+      height: fit-content;
+      width: fit-content;
+
+      button {
+        padding: 0.2rem;
+        margin: 0.2rem;
+
+        background-color: transparent;
+        border: 1px solid rgba(0, 0, 0, 0.384);
+        border-radius: 2rem;
+
+        color: color.$mainorange;
+        font-family: font.$mainfont;
+        font-size: 1rem;
+
+        cursor: pointer;
+      }
+    }
+
     .searchedBookCard {
+      @include mixins.centerStuff(center, center);
+      flex-direction: column;
+      padding: 1rem;
+      //   margin: 1rem;
+
       h1 {
-        color: rgb(148, 96, 0);
+        color: color.$mainorange;
+        font-family: font.$mainfont;
       }
       img {
-        width: 8rem;
-        height: 11rem;
+        width: 10rem;
+        height: 15rem;
+      }
+      p {
+        font-family: font.$mainfont;
       }
     }
   }

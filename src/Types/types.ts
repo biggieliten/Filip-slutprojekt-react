@@ -11,6 +11,16 @@ export type Book = {
   subject?: any;
   //   subject?: string[];
 };
+
+export type Author = {
+  name?: string;
+  birth_date?: string;
+  death_date?: string;
+  top_work?: string;
+  work_count?: number;
+  key: string;
+};
+
 export type Works = {
   authors: { name: string }[];
   cover_id: number;
@@ -23,10 +33,25 @@ export type Works = {
 export type ReducerType = {
   favoriteBooks: Book[];
   readBooks: Book[];
+  favoriteAuthors: Author[];
+
   //   children: { children: React.ReactNode };
+};
+// export type ReducerType = {
+//   favoriteBooks: Book[];
+//   readBooks: Book[];
+//   //   children: { children: React.ReactNode };
+// };
+
+// export type BookState = {
+// 	favoriteBooks: Book[];
+// 	readBooks: Book[];
+// };
+export type AuthorState = {
+  favoriteAuthors: any[];
 };
 
 export type APIresp = {
-  docs: Book[];
+  docs: Book[] | Author[];
   works: Works[];
 };

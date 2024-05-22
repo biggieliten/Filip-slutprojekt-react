@@ -1,5 +1,5 @@
-import { Rating } from "@mui/material";
-import { ReducerType, Book } from "../Types/types";
+import { ReducerType, Book, Author } from "../Types/types";
+
 export type Action =
   | { type: "FAVORITE_BOOK"; payload: Book }
   | { type: "READ_BOOK"; payload: { book: Book } }
@@ -7,10 +7,10 @@ export type Action =
   | { type: "ADD_RATING"; payload: { bookKey: string; rating: number } }
   | { type: "REMOVE_READ"; payload: { key: string } }
   | { type: "REMOVE_FAVORITE"; payload: { key: string } }
-  | { type: "FAVORITE_AUTHOR"; payload: string }
-  | { type: "REMOVE_AUTHOR"; payload: string };
+  | { type: "FAVORITE_AUTHOR"; payload: Author }
+  | { type: "REMOVE_AUTHOR"; payload: { key: string } };
 
-const BookAndAuthorReducer = (state: ReducerType, action: Action) => {
+export const BookReducer = (state: ReducerType, action: Action) => {
   switch (action.type) {
     case "FAVORITE_BOOK":
       return {
@@ -64,10 +64,20 @@ const BookAndAuthorReducer = (state: ReducerType, action: Action) => {
           (book) => book.key !== action.payload.key
         ),
       };
+    case "FAVORITE_AUTHOR":
+      return {
+        ...state,
+        favoriteAuthors: [...state.favoriteAuthors, action.payload],
+      };
+    case "REMOVE_AUTHOR":
+      return {
+        ...state,
+        favoriteAuthors: state.favoriteAuthors.filter(
+          (author) => author.key !== action.payload.key
+        ),
+      };
 
     default:
       return state;
   }
 };
-
-export default BookAndAuthorReducer;

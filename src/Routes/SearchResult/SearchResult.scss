@@ -66,6 +66,21 @@
       }
     }
   }
+  .searchedAuthorCard {
+    height: 35rem;
+    width: 25rem;
+    background-color: white;
+    margin: 1rem;
+    border-radius: 0.5rem;
+
+    .authorCard {
+      li {
+        p {
+        }
+        list-style: none;
+      }
+    }
+  }
 }
 
 // .outlet {

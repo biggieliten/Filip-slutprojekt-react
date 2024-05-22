@@ -8,12 +8,17 @@ export type DropDownOptionsType = {
 
 type DropDownProps = {
   optionItems: DropDownOptionsType[];
-  onOptionChange: (value: string) => void;
+  onOptionChange: (option: DropDownOptionsType) => void;
 };
 
 const DropDown = ({ optionItems, onOptionChange }: DropDownProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onOptionChange(e.target.value);
+    const selectedOption = optionItems.find(
+      (option) => option.link === e.target.value
+    );
+    if (selectedOption) {
+      onOptionChange(selectedOption);
+    }
   };
 
   return (

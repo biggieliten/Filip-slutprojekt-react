@@ -1,37 +1,34 @@
 import { NavBar } from "../../Components/NavBar/NavBar";
-import { APIresp } from "../../Types/APIResp";
 import { useState } from "react";
-import useFetch from "../../hooks/useFetch";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate, useLocation } from "react-router-dom";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import DropDown from "../../Components/DropDown/DropDown";
 import { BooksByGenre } from "../../Components/BooksByGenre/BooksByGenre";
 import { Button } from "../../Components/Button/Button";
 
 const dropDownOptions = [
-  { label: "All", link: "https://openlibrary.org/search.json?q=" },
   { label: "Title", link: "https://openlibrary.org/search.json?title=" },
-  { label: "Author", link: "https://openlibrary.org/search.json?author=" },
+  { label: "Author", link: "https://openlibrary.org/search/authors.json?q=" },
 ];
 
 const HomePage = () => {
   const [input, setInput] = useState("");
-  const [query, setQuery] = useState("");
-  const [searchOption, setSearchOption] = useState<string>();
-
-  const querySearch = searchOption + query;
-
-  useFetch<APIresp>(querySearch);
+  const [searchOption, setSearchOption] = useState(dropDownOptions[0]);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleClick = async () => {
-    setQuery(input);
-    navigate(`/search-result/${input}`);
+  const handleOptionChange = (option: { label: string; link: string }) => {
+    setSearchOption(option);
   };
 
-  const handleOptionChange = (option: string) => {
-    setSearchOption(option);
+  const handleClick = () => {
+    navigate(`/search-result/${input}`, {
+      state: {
+        searchType: searchOption.label,
+        searchUrl: searchOption.link + input,
+      },
+    });
   };
 
   return (
@@ -47,7 +44,7 @@ const HomePage = () => {
           />
           <SearchBar
             navBarClass="navBarInput"
-            placeholder="Sök bok, författare, genre...."
+            placeholder="Search book, author, genre..."
             inputType="text"
             name=""
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -59,8 +56,6 @@ const HomePage = () => {
             clickEvent={handleClick}
             placeholder="Search"
           />
-          <label htmlFor=""></label>
-
           <div className="navBarLinks">
             <NavLink to="/favorite-authors">Favorite Authors</NavLink>
             <NavLink to="/favorite-books">Favorite Books</NavLink>
@@ -70,9 +65,9 @@ const HomePage = () => {
 
         {location.pathname === "/" && (
           <div className="booksByGenre">
-            {location.pathname === "/" && <BooksByGenre genre="sci-fi" />}
-            {location.pathname === "/" && <BooksByGenre genre="fantasy" />}
-            {location.pathname === "/" && <BooksByGenre genre="love" />}
+            <BooksByGenre genre="sci-fi" />
+            <BooksByGenre genre="fantasy" />
+            <BooksByGenre genre="love" />
           </div>
         )}
       </div>

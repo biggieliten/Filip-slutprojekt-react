@@ -16,10 +16,10 @@ function useFetch<T>(url: string) {
             `An unexpected error has occured: ${response.statusText}`
           );
         }
+
         const jsonData = await response.json();
 
         setData(jsonData);
-        console.log(jsonData);
       } catch (error) {
         console.error(error);
       } finally {

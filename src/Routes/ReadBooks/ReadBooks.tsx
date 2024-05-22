@@ -1,24 +1,23 @@
 import { BookCard } from "../../Components/BookCard/BookCard";
-import React, { ReactNode, useContext, useEffect, useState } from "react";
+import { ReactNode, useContext, useEffect, useState } from "react";
 import { FavoriteBooksContext } from "../../State/Books/FavoriteBooksContext";
 import "./ReadBooks.scss";
 import { Button } from "../../Components/Button/Button";
 import { ReviewForm } from "../ReviewForm/ReviewForm";
-import { StarRating, StarRatingProps } from "../../Components/Rating/Rating";
+import { StarRating } from "../../Components/Rating/Rating";
 import RoundNumber from "../../utils/RoundNumber";
 import { Book } from "../../Types/types";
 
 export const ReadBooks = (): ReactNode => {
   const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
-
   const { state, dispatch } = useContext(FavoriteBooksContext);
   const [amountRead, setAmountRead] = useState<number>();
   const [amountPages, setAmountPages] = useState<number>();
   const [bookKey, setBookKey] = useState<string>("");
 
-  const handleCloseReviewForm = () => {
-    setIsReviewFormOpen(false);
-  };
+  //   const handleCloseReviewForm = () => {
+  //     setIsReviewFormOpen(false);
+  //   };
 
   const handleOpenReviewForm = (key: string) => {
     setBookKey(key);
@@ -89,7 +88,7 @@ export const ReadBooks = (): ReactNode => {
                 {isReviewFormOpen && bookKey === book.key && (
                   <ReviewForm
                     bookKey={bookKey}
-                    handleClose={handleCloseReviewForm}
+                    handleClose={() => setIsReviewFormOpen(false)}
                   />
                 )}
               </div>

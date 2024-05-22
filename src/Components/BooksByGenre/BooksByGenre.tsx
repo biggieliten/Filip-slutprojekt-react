@@ -7,7 +7,6 @@ export const BooksByGenre = ({ genre }: { genre: string }) => {
   const { data } = useFetch<APIresp>(
     `https://openlibrary.org/subjects/${genre}.json?limit=12`
   );
-  console.log(data?.works[0]);
 
   return (
     <>

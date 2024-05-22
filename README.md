@@ -1,4 +1,13 @@
-# React + TypeScript + Vite
+# BOOK SEARCH 2000
+
+`This is BOOK SEARCH 2000. It's a online book library where you can search for books, mark them as favorite or read and also rate them.`
+
+## Features
+
+Ability to search for books through title, author, ISBN and more. Adding books to favorite page and read page. On the read page you're also
+able to add reviews and rating.
+
+## Content
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -17,12 +26,12 @@ If you are developing a production application, we recommend updating the config
 export default {
   // other rules...
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`

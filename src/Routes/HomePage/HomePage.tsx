@@ -11,7 +11,6 @@ import { Button } from "../../Components/Button/Button";
 const dropDownOptions = [
   { label: "All", link: "https://openlibrary.org/search.json?q=" },
   { label: "Title", link: "https://openlibrary.org/search.json?title=" },
-  //   { label: "Author", link: "https://openlibrary.org/search/authors.json?q=" },
   { label: "Author", link: "https://openlibrary.org/search.json?author=" },
 ];
 
@@ -29,14 +28,11 @@ const HomePage = () => {
   const handleClick = async () => {
     setQuery(input);
     navigate(`/search-result/${input}`);
-    // console.log(data);
   };
 
   const handleOptionChange = (option: string) => {
     setSearchOption(option);
-    // console.log(searchOption);
   };
-  //   console.log(location.pathname);
 
   return (
     <>
@@ -63,7 +59,6 @@ const HomePage = () => {
             clickEvent={handleClick}
             placeholder="Search"
           />
-          {/* <button onClick={handleClick}>Search</button> */}
           <label htmlFor=""></label>
 
           <div className="navBarLinks">
@@ -78,7 +73,6 @@ const HomePage = () => {
             {location.pathname === "/" && <BooksByGenre genre="sci-fi" />}
             {location.pathname === "/" && <BooksByGenre genre="fantasy" />}
             {location.pathname === "/" && <BooksByGenre genre="love" />}
-            {/* <BooksByGenre subject="horror" /> */}
           </div>
         )}
       </div>

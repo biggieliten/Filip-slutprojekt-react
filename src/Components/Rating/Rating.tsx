@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Rating } from "react-simple-star-rating";
 
 export type StarRatingProps = {
@@ -10,12 +10,6 @@ export const StarRating: React.FC<StarRatingProps> = ({
   setStarRating,
   bookRating,
 }) => {
-  //   const [rating, setRating] = useState(0);
-
-  //   useEffect(() => {
-  //     setRating(bookRating);
-  //   }, [bookRating]);
-
   const handleRating = (rate: number) => {
     setStarRating(rate);
     console.log(rate);

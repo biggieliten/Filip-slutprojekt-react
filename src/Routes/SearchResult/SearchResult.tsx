@@ -9,29 +9,26 @@ import { Button } from "../../Components/Button/Button";
 import { APIresp } from "../../Types/APIResp";
 import RoundNumber from "../../utils/RoundNumber";
 import ExistsInArray from "../../utils/ExistsInArray";
+import CircularIndeterminate from "../../Components/Loading/Loading";
 
 export const SearchResult = () => {
   const { query } = useParams();
   const queryURL = `https://openlibrary.org/search.json?q=${query}`;
   const { data, loading, error } = useFetch<APIresp>(queryURL);
-
   const { dispatch, state } = useContext(FavoriteBooksContext);
-
-  const [favoriteBook, setFavoriteBook] = useState<Book[]>([]);
+  //   const [favoriteBook, setFavoriteBook] = useState<B	ook[]>([]);
 
   const addToFavorites = (book: Book) => {
     const favExists = ExistsInArray(state.favoriteBooks, book.key);
-
     if (!favExists) {
       dispatch({ type: "FAVORITE_BOOK", payload: book });
     }
-    setFavoriteBook([...favoriteBook, book]);
+    // setFavoriteBook([...favoriteBook, book]);
   };
 
   const addToRead = (book: Book) => {
-    const bookExists = ExistsInArray(state.readBooks, book.key);
-
-    if (!bookExists) {
+    const readExists = ExistsInArray(state.readBooks, book.key);
+    if (!readExists) {
       dispatch({
         type: "READ_BOOK",
         payload: { book: { ...book, key: book.key } },
@@ -39,7 +36,7 @@ export const SearchResult = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <CircularIndeterminate />;
   if (error) return <p>404 Not Found</p>;
 
   return (
@@ -51,7 +48,7 @@ export const SearchResult = () => {
               key={book.key}
               title={book.title}
               cover={book.cover_i}
-              author={book.author_name}
+              author={book.author_name && book.author_name[0]}
               publishDate={book.first_publish_year}
               avgRating={
                 book.ratings_average && RoundNumber(book.ratings_average)

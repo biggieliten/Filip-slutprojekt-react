@@ -1,33 +1,49 @@
-import React, { useState, useEffect } from "react";
+import * as React from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
-// import Loading from "./Loading";
-
-function Loading() {
+export default function CircularIndeterminate() {
   return (
-    <div className="loader-container">
-      <div className="loader">Loading...</div>
-    </div>
+    <Box
+      sx={{
+        display: "flex",
+      }}
+    >
+      <CircularProgress color="warning" />
+    </Box>
   );
 }
 
-const Loadingg = () => {
-  const [isLoading, setIsLoading] = useState(true);
+// import React, { useState, useEffect } from "react";
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
+// // import Loading from "./Loading";
 
-  if (isLoading) {
-    return <Loading />;
-  }
+// function Loading() {
+//   return (
+//     <div className="loader-container">
+//       <div className="loader">Loading...</div>
+//     </div>
+//   );
+// }
 
-  return (
-    <div>
-      <h1>Data Loaded!</h1>
-    </div>
-  );
-};
+// const Loadingg = () => {
+//   const [isLoading, setIsLoading] = useState(true);
 
-export default { Loadingg };
+//   useEffect(() => {
+//     setTimeout(() => {
+//       setIsLoading(false);
+//     }, 2000);
+//   }, []);
+
+//   if (isLoading) {
+//     return <Loading />;
+//   }
+
+//   return (
+//     <div>
+//       <h1>Data Loaded!</h1>
+//     </div>
+//   );
+// };
+
+// export default { Loadingg };

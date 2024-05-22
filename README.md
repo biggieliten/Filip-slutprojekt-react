@@ -13,13 +13,9 @@
 
 ## How to use
 
-
-
-
-
 - ` git clone https://github.com/biggieliten/Filip-slutprojekt-react `
-- ´ npm i ´
-- ´ npm run dev ´
+- ` npm i `
+- ` npm run dev `
 
 
 

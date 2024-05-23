@@ -39,7 +39,6 @@ export const BookReducer = (state: ReducerType, action: Action) => {
       };
 
     case "ADD_RATING":
-      console.log(action.payload.rating, "rating");
       return {
         ...state,
         readBooks: state.readBooks.map((book) =>

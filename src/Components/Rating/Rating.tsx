@@ -12,7 +12,6 @@ export const StarRating: React.FC<StarRatingProps> = ({
 }) => {
   const handleRating = (rate: number) => {
     setStarRating(rate);
-    console.log(rate);
   };
 
   return (

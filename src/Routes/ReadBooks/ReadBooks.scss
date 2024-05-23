@@ -46,8 +46,16 @@
   }
 }
 
-.statistics h1 {
-  @include mixins.centerStuff(center, center);
-  color: color.$mainorange;
-  font-family: font.$mainfont;
+.statistics {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  margin: 2rem;
+
+  h1 {
+    @include mixins.centerStuff(center, center);
+    color: color.$mainorange;
+    font-family: font.$mainfont;
+    margin: 1rem;
+  }
 }

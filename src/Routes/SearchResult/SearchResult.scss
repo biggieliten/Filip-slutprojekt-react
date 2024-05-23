@@ -9,14 +9,12 @@
   background-color: rgb(74, 74, 74);
 
   border-radius: 0.5rem;
-  //   padding: 1rem;
   overflow-y: scroll;
   .searchedBookCont {
     padding: 1rem;
     margin: 1rem;
     border-radius: 0.5rem;
     background-color: white;
-    // flex-direction: column;
     height: 35rem;
     width: 25rem;
     position: relative;
@@ -51,7 +49,6 @@
       @include mixins.centerStuff(center, center);
       flex-direction: column;
       padding: 1rem;
-      //   margin: 1rem;
 
       h1 {
         color: color.$mainorange;
@@ -84,8 +81,6 @@
       }
     }
     .authorAddButton {
-      //   display: flex;
-      //   align-self: flex-end;
       position: absolute;
       bottom: 1rem;
     }

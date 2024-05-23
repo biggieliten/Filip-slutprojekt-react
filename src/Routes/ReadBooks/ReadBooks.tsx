@@ -7,17 +7,16 @@ import { ReviewForm } from "../ReviewForm/ReviewForm";
 import { StarRating } from "../../Components/Rating/Rating";
 import RoundNumber from "../../utils/RoundNumber";
 import { Book } from "../../Types/types";
+import avrage from "../../utils/avrage";
 
 export const ReadBooks = (): ReactNode => {
   const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
   const { state, dispatch } = useContext(FavoriteBooksContext);
   const [amountRead, setAmountRead] = useState<number>();
   const [amountPages, setAmountPages] = useState<number>();
+  const [avgRead, setAvgRead] = useState<number>();
+  const [avgRating, setAvgRating] = useState<number>();
   const [bookKey, setBookKey] = useState<string>("");
-
-  //   const handleCloseReviewForm = () => {
-  //     setIsReviewFormOpen(false);
-  //   };
 
   const handleOpenReviewForm = (key: string) => {
     setBookKey(key);
@@ -26,18 +25,27 @@ export const ReadBooks = (): ReactNode => {
 
   useEffect(() => {
     const totalAmountPages = state.readBooks.reduce(
-      (sum: number, book: Book) => sum + book.pages,
+      (sum: number, book: Book) => sum + (book.pages || 0),
       0
     );
     setAmountPages(totalAmountPages);
     setAmountRead(state.readBooks.length);
+    setAvgRead(avrage(totalAmountPages, state.readBooks.length));
+
+    const totalRating = state.readBooks.reduce(
+      (sum: number, book: Book) => sum + (book.ratings_average || 0),
+      0
+    );
+
+    setAvgRating(RoundNumber(avrage(totalRating, state.readBooks.length)));
   }, [amountPages]);
 
   return (
     <>
       <div className="statistics">
         <h1>Read Books: {amountRead}</h1>
-
+        <h1>Avrage read pages: {avgRead ? avgRead : 0}</h1>
+        <h1>Avrage book rating: {avgRating ? avgRating : 0}</h1>
         <h1>Total read pages: {amountPages ? amountPages : 0}</h1>
       </div>
       <div className="readBooksPage">

@@ -34,19 +34,8 @@ export type ReducerType = {
   favoriteBooks: Book[];
   readBooks: Book[];
   favoriteAuthors: Author[];
-
-  //   children: { children: React.ReactNode };
 };
-// export type ReducerType = {
-//   favoriteBooks: Book[];
-//   readBooks: Book[];
-//   //   children: { children: React.ReactNode };
-// };
 
-// export type BookState = {
-// 	favoriteBooks: Book[];
-// 	readBooks: Book[];
-// };
 export type AuthorState = {
   favoriteAuthors: any[];
 };

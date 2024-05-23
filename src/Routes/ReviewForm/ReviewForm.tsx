@@ -9,7 +9,6 @@ type BookKeyType = {
   handleClose?: () => void;
 };
 
-// FavoriteBooksContext
 export const ReviewForm = (bookKey: BookKeyType) => {
   const { key } = useParams();
   const [review, setReview] = useState("");

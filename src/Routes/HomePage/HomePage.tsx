@@ -44,7 +44,7 @@ const HomePage = () => {
           />
           <SearchBar
             navBarClass="navBarInput"
-            placeholder="Search book, author, genre..."
+            placeholder="Search for books, authors, genres and more..."
             inputType="text"
             name=""
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

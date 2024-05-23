@@ -17,3 +17,12 @@
   font-family: $font;
   color: $color;
 }
+
+@mixin authorCard($height, $witdth) {
+  height: $height;
+  width: $witdth;
+  background-color: white;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}

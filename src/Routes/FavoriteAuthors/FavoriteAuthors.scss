@@ -1,0 +1,25 @@
+@use "../../sass/mixins" as mixins;
+@use "../../sass/fonts" as font;
+@use "../../sass/colors" as color;
+
+.favoriteAuthorCard {
+  @include mixins.authorCard(35rem, 25rem);
+  .favoriteAuthorInfo {
+    font-family: font.$mainfont;
+    h1 {
+      color: color.$mainorange;
+    }
+    img {
+      width: 15rem;
+      height: 15rem;
+      margin-bottom: 1rem;
+    }
+    li {
+      list-style: none;
+    }
+  }
+  .removeFavorite {
+    border: none;
+    font-size: 2rem;
+  }
+}

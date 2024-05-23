@@ -91,7 +91,7 @@ export const SearchResult = () => {
               death={author.death_date}
               works={author.top_work}
               workCount={author.work_count}
-              style="authorCard"
+              style="authorInfo"
             />
             <Button
               clickEvent={() => authorToFav(author)}

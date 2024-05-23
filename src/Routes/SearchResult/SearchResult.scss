@@ -67,22 +67,27 @@
     }
   }
   .searchedAuthorCard {
-    height: 35rem;
-    width: 25rem;
-    background-color: white;
-    margin: 1rem;
-    border-radius: 0.5rem;
-
-    .authorCard {
+    @include mixins.authorCard(35rem, 25rem);
+    position: relative;
+    .authorInfo {
+      font-family: font.$mainfont;
+      h1 {
+        color: color.$mainorange;
+      }
+      img {
+        width: 15rem;
+        height: 15rem;
+        margin-bottom: 1rem;
+      }
       li {
-        p {
-        }
         list-style: none;
       }
     }
+    .authorAddButton {
+      //   display: flex;
+      //   align-self: flex-end;
+      position: absolute;
+      bottom: 1rem;
+    }
   }
 }
-
-// .outlet {
-//   background-color: rgba(0, 0, 0, 0.281);
-// }
